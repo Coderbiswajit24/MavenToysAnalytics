@@ -55,6 +55,7 @@ Toys aims to:
    git clone https://github.com/Coderbiswajit24/MavenToysAnalytics.git
 
 # 6.  Usage :
-- Open `Maven Toys & Games Retail Analysis.ipynb` in Jupyter Notebook.
+- Open `Maven Toys & Games Retail Analysis.ipynb` ![Alt text](https://github.com/Coderbiswajit24/MavenToysAnalytics/blob/163c6b1c2d223bc66f0d14673f6dfcdf74969ede/Maven%20Toys%20%26%20Games%20Retail%20Analysis.ipynb)
+in Jupyter Notebook.
 - Run all cells to generate sales, inventory, and profitability insights.
 - View visualizations like the sales forecast chart.   
