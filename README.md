@@ -248,7 +248,7 @@ in Jupyter Notebook.
 
            store_wise_overstocked_products.sort_values(by = ['Store_Name' , 'Product_Name'])
 
-   # Question 2 :  What is the inventory turnover rate for each product category? 
+  # Question 2 :  What is the inventory turnover rate for each product category? 
 
            # Merge sales and products to get product cost
            sales_with_cost = pd.merge(sales, products, on='Product_ID', how='left')
@@ -275,6 +275,97 @@ in Jupyter Notebook.
            
            # Display the result
            turnover_rate[['Product_Category', 'Inventory_Turnover_Rate']]
+
+  # Result : 
+   ![Alt text](https://github.com/Coderbiswajit24/MavenToysAnalytics/blob/06e8ead7385d7872063688df9136f8537d30fc3e/Inventory%20Trunover%20Ratio%20Distribution%20on%20Products%20Category.png)
+
+  # Question 3:  Are there any products that are consistently out of stock, leading to potential lost sales? 
+
+          product_sold = product_sales.groupby(['Product_ID','Product_Name'])['Units'].sum().reset_index()
+
+          product_sold.columns = ['Product_ID','Product_Name' , 'Total_Units_Sold']
+          
+          product_stock = inventory.groupby('Product_ID')['Stock_On_Hand'].mean().reset_index()
+          
+          product_stock.columns = ['Product_ID','Average_Stock']
+          
+          product_stock['Average_Stock'] = round(product_stock['Average_Stock'] , 0)
+          
+          merge_df = pd.merge(product_sold , product_stock , how = 'inner' , on = 'Product_ID')
+          
+          merge_df[merge_df['Average_Stock'] < 5].sort_values(by = 'Total_Units_Sold' , ascending = False)
+
+  # Question 4 :  How does the stock-on-hand level correlate with sales performance? 
+
+         correlation = merge_df['Total_Units_Sold'].corr(merge_df['Average_Stock'])
+         
+         print("Hence Required correlation Between Stock_On_Hand and Products Sales/Units Sold is : ",round(correlation , 1))
+
+  # Question 5 : Which stores have the best and worst inventory management practices?
+
+          store_wise_product_sold = sales.groupby('Store_ID')['Units'].sum().reset_index()
+
+          store_wise_product_sold.columns = ['Store_ID' , 'Total_Units_Sold']
+          
+          store_wise_inventory = inventory.groupby('Store_ID')['Stock_On_Hand'].sum().reset_index()
+          
+          store_wise_inventory.columns = ['Store_ID','Total_Stock']
+          
+          store_metrics = pd.merge(store_wise_product_sold,store_wise_inventory , how = 'inner',on ='Store_ID')
+          
+          store_metrics = pd.merge(store_metrics , stores , how = 'inner' , on = 'Store_ID')
+          
+          store_metrics['Inventory_Turnover_Ratio'] = round(store_metrics['Total_Units_Sold'] / store_metrics['Total_Stock'] , 0)
+          
+          stockout_frequency = inventory[inventory['Stock_On_Hand'] == 0].groupby('Store_ID').size().reset_index()
+          
+          stockout_frequency.columns = ['Store_ID','Stockout_Frequency']
+          
+          store_metrics = pd.merge(store_metrics , stockout_frequency, how = 'inner' , on = 'Store_ID')
+          
+          # Best stores: High turnover, low stockout frequency
+          
+          store_metrics['Rank'] = store_metrics['Inventory_Turnover_Ratio'].rank(ascending=False) + store_metrics['Stockout_Frequency'].rank(ascending=True)
+
+          store_metrics[['Store_Name' , 'Total_Units_Sold' , 'Total_Stock','Inventory_Turnover_Ratio','Stockout_Frequency','Rank']].sort_values(by = 'Rank')
+
+  #--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+          print("Best Performance Stores are: ")
+          store_metrics[['Store_Name' , 
+          'Total_Units_Sold' ,
+          'Total_Stock',
+          'Inventory_Turnover_Ratio',
+          'Stockout_Frequency',
+          'Rank']].sort_values(by = 'Rank').head(5)
+
+  #--------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+          print("Low Performance Stores are: ")
+          store_metrics[['Store_Name' , 
+               'Total_Units_Sold' ,
+               'Total_Stock',
+               'Inventory_Turnover_Ratio',
+               'Stockout_Frequency',
+               'Rank']].sort_values(by = 'Rank').tail(5)  
+
+  #--------------------------------------------------------------------------------------------------------------------------------------------------------
+            
+  # (c). Product Profitability Analysis Insights : Which product categories contribute the most to overall profitability?
+
+         product_sales['Profit'] = (product_sales['Product_Price'] - product_sales['Product_Cost'])* product_sales['Units']
+
+         product_category_wise_profit = product_sales.groupby('Product_Category')['Profit'].sum().reset_index()
+
+         product_category_wise_profit.columns = ['Product_Category','Total_Profit']
+         
+         product_category_wise_profit['Overall_profit(%)'] = round((product_category_wise_profit['Total_Profit']*100)/sum(product_sales['Profit']) , 1)
+         
+         product_category_wise_profit.sort_values(by ='Total_Profit' , ascending = False)
+   # Result : 
+   
+                   
+ 
 
 
            
