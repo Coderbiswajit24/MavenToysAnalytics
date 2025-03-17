@@ -49,12 +49,21 @@ Toys aims to:
 - Calendar: Time-based data for trend & Time Series analysis.
   ![Alt text](https://github.com/Coderbiswajit24/MavenToysAnalytics/blob/0dfa6369cf8651ba212a29830e238d8f62c48029/Datasets.zip)
 
-# 5.  Installation :
+# 5. Metadata Information :
+ 
+
+# 6.  Data Model :
+The ER Diagram below illustrates the relationships between the datasets (Sales, Inventory, Products, Stores, and Calendar).
+
+![ER Diagram](https://github.com/Coderbiswajit24/MavenToysAnalytics/blob/348ba3d5699b339caadabe16001e9c1fc5b90c18/Maven%20Toys%20%26%20Games%20ER%20Diagram.png)
+*Figure: Entity-Relationship Diagram (Data Model) of Maven Toys & Games datasets.*  
+
+# 7.  Installation :
 1. Clone the repository:
    ```bash
    git clone https://github.com/Coderbiswajit24/MavenToysAnalytics.git
 
-# 6.  Usage :
+# 8.  Usage :
 - Open `Maven Toys & Games Retail Analysis.ipynb` ![Alt text](https://github.com/Coderbiswajit24/MavenToysAnalytics/blob/163c6b1c2d223bc66f0d14673f6dfcdf74969ede/Maven%20Toys%20%26%20Games%20Retail%20Analysis.ipynb)
 in Jupyter Notebook.
 - Run all cells to generate sales, inventory, and profitability insights.
