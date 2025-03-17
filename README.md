@@ -191,11 +191,19 @@ in Jupyter Notebook.
             quarter_wise_sales_revenue_2022.columns = ['Quarter' , 'Total_Sales_Revenue']  
 
             quarter_wise_sales_revenue_2022
- # -------------------------------------------------------------------------------------------------------------------------------------------------------- 
+  # -------------------------------------------------------------------------------------------------------------------------------------------------------- 
             #  Similarly Calculate 2023 Quarterly Sales Revenue Trend
             quarter_wise_sales_revenue_2023 = month_wise_sales[month_wise_sales['Year'] == 2023].groupby("Quarter")['Sales_Revenue'].sum().reset_index 
             quarter_wise_sales_revenue_2023.columns = ['Quarter' , 'Total_Sales_Revenue']  
             quarter_wise_sales_revenue_2023
+
+  # -------------------------------------------------------------------------------------------------------------------------------------------------------- 
+           # Findout Yearly Sales Revenue and Profit trend
+           sales_revenue_2022 = sum(product_sales[product_sales['Date'] <= '2022-12-31']['Sales_Revenue'])  
+           profit_2022 = sum(product_sales[product_sales['Date'] <= '2022-12-31']['Profit'])
+           sales_revenue_2023 = sum(product_sales[product_sales['Date'] >= '2023-01-01']['Sales_Revenue'])
+           profit_2023 = sum(product_sales[product_sales['Date'] >= '2023-01-01']['Profit'])
+
 
    # Result : For Monthly Sales Trend (2022 vs 2023)
    ![Alt text](https://github.com/Coderbiswajit24/MavenToysAnalytics/blob/41b0de787047b7dbba75518825fc677b4dc6f2b0/Monthly%20Sales%20Trends%20(2022%20vs%202023).png)
@@ -208,6 +216,7 @@ in Jupyter Notebook.
             category_wise_quantity_sold.columns = ['Product_Category','Total_unit_sold']
             category_wise_quantity_sold.sort_values(by = 'Total_unit_sold' , ascending = False)
    # Result :
+   ![Alt text](https://github.com/Coderbiswajit24/MavenToysAnalytics/blob/36d10f6ef037ba5fba3404de8df3eb2bc494fa3c/Quantity%20Sold%20Distribution%20Of%20Products%20Category.png)
   
      
      
