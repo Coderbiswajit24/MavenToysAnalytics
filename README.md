@@ -143,6 +143,12 @@ in Jupyter Notebook.
    ![Alt text](https://github.com/Coderbiswajit24/MavenToysAnalytics/blob/367cff8057cbcfedf2ea2e86dfbb7de212e6dd2a/Top%2010%20Best%20Seling%20Products%20Based%20On%20Quantity%20Sold.png)
 
   # For Least Selling Products
+
+           # Calculating Least Selling Products based on Quantity Sold
+ 
+           least_selling_products = product_units_sold.sort_values(by = 'Total_Quantity_Sold' , ascending = False).tail(10)
+           
+           least_selling_products
    ![Alt text](https://github.com/Coderbiswajit24/MavenToysAnalytics/blob/367cff8057cbcfedf2ea2e86dfbb7de212e6dd2a/Bottom%2010%20Least%20Selling%20Products%20Based%20on%20Quantity%20Sold.png)
 
   # Question 3 :
@@ -372,7 +378,52 @@ in Jupyter Notebook.
          product_profit.columns = ['Product_ID' , 'Product_Name' , 'Total_Profit']
 
          product_profit.sort_values(by = 'Total_Profit' , ascending = False)
-   # Visual:
+  #--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+         print("Highest Profit Margin or Highest Profitable Products are : ")
+
+         product_profit.sort_values(by = 'Total_Profit' , ascending = False).head(5)
+   # Visual : Top 5 Products Based on Profit
+   ![Alt text](https://github.com/Coderbiswajit24/MavenToysAnalytics/blob/bf58490a7d4cceb69db6b0b14258ff3a6bda5549/Top%205%20Products%20Based%20on%20Profit.png)       
+
+  #--------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+         print("Lowest Profit Margin or Lowest Profitable Products are: ")
+
+         product_profit.sort_values(by = 'Total_Profit' , ascending = True).head(5)
+        
+   # Bottom 5 Products Based on Profit
+   ![Alt text](https://github.com/Coderbiswajit24/MavenToysAnalytics/blob/bf58490a7d4cceb69db6b0b14258ff3a6bda5549/Bottom%205%20Products%20Based%20On%20Profit.png)
+
+  # Question 3 : Are there any products that are sold at a loss (i.e., selling price is less than cost)? 
+
+         print("Products With selling Price is less than Cost Price: ")
+
+         products[products['Product_Price'] < products['Product_Cost']]
+
+   # (d). Geographical Analysis Insights :  
+  # Question 1 : How do sales and inventory levels vary across different cities and store locations? 
+         # Firstly Findout Sales and Inventory levels across different store cities.
+
+          store_product_sales = pd.merge(store_sales , products , how = 'inner' , on ='Product_ID')
+          
+          store_product_sales['Sales_Revenue'] = store_product_sales['Product_Price']* store_product_sales['Units']
+          
+          store_city_wise_sales_revenue = store_product_sales.groupby('Store_City')['Sales_Revenue'].sum().reset_index()
+          
+          store_city_wise_sales_revenue.columns = ['Store_City' , 'Total_Sales_Revenue(US Dollar $)']
+          
+          store_city_wise_sales_revenue.sort_values(by = 'Total_Sales_Revenue(US Dollar $)' , ascending = False)
+   # ------------------------------------------------------------------------------------------------------------------------------------------------------ 
+          # Sort by Total_Sales_Revenue and get top 10
+          top_10_sales = store_city_wise_sales_revenue.sort_values(by='Total_Sales_Revenue(US Dollar $)', ascending=False).head(10)
+
+   # Visual : Top 10 Stores Cities Based on Sales Revenue
+   
+          
+             
+
+   
    
    
                    
