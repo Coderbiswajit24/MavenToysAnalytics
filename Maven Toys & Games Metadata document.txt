@@ -1,0 +1,90 @@
+This document provides comprehensive metadata descriptions for the columns in the CSV files related to Maven Toys & Games Sales Analysis. This datasets includes Stores , Products , Inventory , Calendar , Sales Tables .
+
+1. Stores.csv ( DimensionTable) :
+Store_ID: Unique identifier for each store.
+
+Store_Name: Name of the store (includes city and a number if multiple stores exist in the same city).
+
+Store_City: City where the store is located.
+
+Store_Location: Type of location (e.g., Residential, Commercial, Downtown, Airport).
+
+Store_Open_Date: Date when the store was opened (in YYYY-MM-DD format).
+The earliest store opened on 1992-09-18 (Guadalajara), and the latest on 2016-05-18 (Guanajuato).
+
+
+--------------------------------------------
+--------------------------------------------
+
+
+2. Products.csv (Dimension Table):
+Product_ID: Unique identifier for each product.
+
+Product_Name: Name of the product.
+
+Product_Category: Category the product belongs to (e.g., Toys, Games, Art & Crafts, Sports & Outdoors, Electronics).
+
+Product_Cost: Cost of the product to the retailer (in USD).
+
+Product_Price: Selling price of the product (in USD).
+
+
+----------------------------------------------
+----------------------------------------------
+
+3. Inventory.csv (Dimension Table) :
+Store_ID: Unique identifier for each store (links to the Stores dataset).
+
+Product_ID: Unique identifier for each product (links to the Products dataset).
+
+Stock_On_Hand: The number of units of a specific product currently in stock at a specific store.
+
+
+---------------------------------------------
+---------------------------------------------
+
+4. Sales.csv (Fact Table) :
+Sale_ID: A unique identifier for each sale transaction.Range from 1 to 829,262 (sequential, no gaps). Uniquely identifies each sale for tracking and analysis.
+
+Date:The date on which the sale occurre (in YYYY-MM-DD format).Range from January 1, 2022 (2022-01-01) to September 30, 2023 (2023-09-30).
+Indicates the time of the transaction, allowing for temporal analysis (e.g., daily, monthly, or yearly sales trends).
+
+Store_ID:The unique identifier of the store where the sale took place (links to the store dataset).Range from 1 to 50 (matches the 50 stores from the Stores dataset).
+Identifies the specific store location for each sale, enabling store-level analysis.
+
+Product_ID:The unique identifier of the product sold (links to the product dataset).Range from 1 to 35 (matches the 35 products from the Products dataset).
+Identifies the specific product sold in each transaction, allowing for product-level analysis.
+
+Units:The number of units of the product sold in the transaction.Range from 1 to 4 (most transactions involve 1–4 units).
+Quantifies the volume of each product sold, useful for calculating total sales volume and revenue (if combined with product prices).
+
+---------------------------------------------
+---------------------------------------------
+
+Calendar.csv ( Dimension Table):
+Date_Column:The specific date in YYYY-MM-DD format.Range from January 1, 2022 (2022-01-01) to September 30, 2023 (2023-09-30).
+Serves as the primary date identifier for each row, enabling temporal(Time -Series) analysis.
+
+Month_Column: The full name of the month corresponding to the date.
+Values are January, February, March, April, May, June, July, August, September, October, November, December.
+Groups dates by month for monthly analysis or aggregation.
+
+Quarter: The quarter of the year in which the date falls, labeled as "Qtr-1" to "Qtr-4".
+Values are Qtr-1: January–March, Qtr-2: April–June, Qtr-3: July–September, Qtr-4: October–December.
+Provides a higher-level time grouping for quarterly Sales analysis.
+
+Week_day: The day of the week corresponding to the date.
+Values are Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday.
+Identifies the day of the week, useful for analyzing patterns related to weekdays vs. weekends.
+
+Year: The year of the date. Values are 2022, 2023. Indicates the year for annual comparisons or filtering.
+
+Week_number: The week number within the year, labeled as "Week-1" to "Week-53".
+Range: 
+2022: Week-1 to Week-53 (53 weeks due to the year starting on a Saturday).
+2023: Week-1 to Week-39 (partial year up to September 30, 2023).
+Assigns a week number for weekly analysis; week numbering appears to follow the ISO week date system, where weeks start on Monday and the first week of the year includes at least four days.
+
+
+
+
