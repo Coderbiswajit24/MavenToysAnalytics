@@ -47,3 +47,14 @@ Toys aims to:
 - Products: Cost, price, and category details.
 - Stores: City , Location and opening date information.
 - Calendar: Time-based data for trend & Time Series analysis.
+  ![Alt text](https://github.com/Coderbiswajit24/MavenToysAnalytics/blob/0dfa6369cf8651ba212a29830e238d8f62c48029/Datasets.zip)
+
+# 5.  Installation :
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Coderbiswajit24/MavenToysAnalytics.git
+
+# 6.  Usage :
+- Open `Maven Toys & Games Retail Analysis.ipynb` in Jupyter Notebook.
+- Run all cells to generate sales, inventory, and profitability insights.
+- View visualizations like the sales forecast chart.   
