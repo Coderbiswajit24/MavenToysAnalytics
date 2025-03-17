@@ -112,33 +112,80 @@ in Jupyter Notebook.
    ![Alt text](https://github.com/Coderbiswajit24/MavenToysAnalytics/blob/0e909997588badf6c5191f1302322ad2462f3c48/Top%2010%20Stores%20Based%20On%20Sales%20Revenue(USD).png)
 
    # For Profit :
-          # Calculate Top 10 Stores Based on Profit
-          df1 = store_sales_revenue.groupby('Store_Name')['Profit'].sum().reset_index()
-          df1.columns = ['Store_Name' , 'Total_Profit(US Dollars $)']
-          top_10_profitable_stores = df1.sort_values(by = 'Total_Profit(US Dollars $)' , ascending = False).head(10)
+            # Calculate Top 10 Stores Based on Profit
+            df1 = store_sales_revenue.groupby('Store_Name')['Profit'].sum().reset_index()
+            df1.columns = ['Store_Name' , 'Total_Profit(US Dollars $)']
+            top_10_profitable_stores = df1.sort_values(by = 'Total_Profit(US Dollars $)' , ascending = False).head(10)
    ![Alt text](https://github.com/Coderbiswajit24/MavenToysAnalytics/blob/54cae88dcf5e7bfc540952c967a6dea5e9451117/Top%2010%20Stores%20Based%20On%20Profit(USD).png)
-   # Question 2 : Which products are the top-selling and least-selling across all stores? 
-          # Merge the 'sales' and 'products' tables on the 'Product_ID' column using an inner join.
-          # This combines sales data with product information for each product sold.
-          product_sales = sales.merge(products, how='inner', on='Product_ID')
-          
-          # Group the merged DataFrame by 'Product_Name' and calculate the total units sold for each product.
-          # The result is a new DataFrame with two columns: 'Product_Name' and the sum of 'Units' sold for each product.
-          product_units_sold = product_sales.groupby('Product_Name')['Units'].sum().reset_index()
-          
-          # Rename the columns in the resulting DataFrame for clarity.
-          # The 'Units' column is renamed to 'Total_Quantity_Sold'.
-          product_units_sold.columns = ['Product_Name', 'Total_Quantity_Sold']
-          
-          # Sort the DataFrame by 'Total_Quantity_Sold' in descending order and select the top 10 products.
-          # This gives the top 10 best-selling products based on the total quantity sold.
-          top_selling_products = product_units_sold.sort_values(by='Total_Quantity_Sold', ascending=False).head(10)
-          
-          # Display the resulting DataFrame containing the top 10 best-selling products.
-          top_selling_products
+   # Question 2 : 
+   - Which products are the top-selling and least-selling across all stores based on quantity sold?
+      
+            # Merge the 'sales' and 'products' tables on the 'Product_ID' column using an inner join.
+            # This combines sales data with product information for each product sold.
+            product_sales = sales.merge(products, how='inner', on='Product_ID')
+            
+            # Group the merged DataFrame by 'Product_Name' and calculate the total units sold for each product.
+            # The result is a new DataFrame with two columns: 'Product_Name' and the sum of 'Units' sold for each product.
+            product_units_sold = product_sales.groupby('Product_Name')['Units'].sum().reset_index()
+            
+            # Rename the columns in the resulting DataFrame for clarity.
+            # The 'Units' column is renamed to 'Total_Quantity_Sold'.
+            product_units_sold.columns = ['Product_Name', 'Total_Quantity_Sold']
+            
+            # Sort the DataFrame by 'Total_Quantity_Sold' in descending order and select the top 10 products.
+            # This gives the top 10 best-selling products based on the total quantity sold.
+            top_selling_products = product_units_sold.sort_values(by='Total_Quantity_Sold', ascending=False).head(10)
+            
+            # Display the resulting DataFrame containing the top 10 best-selling products.
+            top_selling_products
 
    # Result : For Top Selling Products
-   
+   ![Alt text](https://github.com/Coderbiswajit24/MavenToysAnalytics/blob/367cff8057cbcfedf2ea2e86dfbb7de212e6dd2a/Top%2010%20Best%20Seling%20Products%20Based%20On%20Quantity%20Sold.png)
+
+   # For Least Selling Products
+   ![Alt text](https://github.com/Coderbiswajit24/MavenToysAnalytics/blob/367cff8057cbcfedf2ea2e86dfbb7de212e6dd2a/Bottom%2010%20Least%20Selling%20Products%20Based%20on%20Quantity%20Sold.png)
+
+   # Question 3 :
+   - How do sales vary by month, quarter, and year?
+
+            # Calculating  First 2022 Monthly Sales Revneue Trends
+            # Merge the 'product_sales' DataFrame with the 'date_table' DataFrame on the 'Date' column using an inner join.
+            # This combines sales data with date information (e.g., month, year) for each sale.
+            month_wise_sales = product_sales.merge(date_table, how='inner', on='Date')
+            
+            # Calculate the sales revenue for each sale by multiplying the product price by the number of units sold.
+            # This creates a new column called 'Sales_Revenue' in the DataFrame.
+            month_wise_sales['Sales_Revenue'] = (month_wise_sales['Product_Price'] * month_wise_sales['Units'])
+            
+            # Filter the data to include only sales from the year 2022, then group by 'Month_Number' and 'Month_Name'.
+            # Calculate the total sales revenue for each month in 2022.
+            month_wise_sales_revenue_2022 = month_wise_sales[month_wise_sales['Year'] == 2022].groupby(['Month_Number', 'Month_Name'])['Sales_Revenue'].sum().reset_index()
+     
+            # Rename the columns in the resulting DataFrame for clarity.
+            # The columns are renamed to 'Month_Number', 'Month_Name', and 'Total_Sales_Revenue'.
+            month_wise_sales_revenue_2022.columns = ['Month_Number', 'Month_Name', 'Total_Sales_Revenue']
+            
+            # Sort the DataFrame by 'Month_Number' to ensure the months are in chronological order.
+            month_wise_sales_revenue_2022.sort_values(by='Month_Number')
+     # ------------------------------------------------------------------------------------------------------------------------------------------------------
+
+            # Calculating 2023 Monthly Sales Revenue Trends
+
+            # Filter the 'month_wise_sales' DataFrame to include only sales from the year 2023.
+            # Then, group the filtered data by 'Month_Number' and 'Month_Name'.
+            # Calculate the total sales revenue for each month in 2023.
+            month_wise_sales_revenue_2023 = month_wise_sales[month_wise_sales['Year'] == 2023].groupby(['Month_Number', 'Month_Name'])['Sales_Revenue'].sum().reset_index()
+            
+            # Rename the columns in the resulting DataFrame for clarity.
+            # The columns are renamed to 'Month_Number', 'Month_Name', and 'Total_Sales_Revenue'.
+            month_wise_sales_revenue_2023.columns = ['Month_Number', 'Month_Name', 'Total_Sales_Revenue']
+            
+            # Sort the DataFrame by 'Month_Number' to ensure the months are in chronological order.
+            month_wise_sales_revenue_2023.sort_values(by='Month_Number')
+
+     # Result :
+     
+                           
              
 
             	   
