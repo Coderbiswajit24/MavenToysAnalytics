@@ -471,7 +471,26 @@ in Jupyter Notebook.
           store_location_wise_profit.sort_values(by = 'Total_Profit(US Dollar $)' , ascending = False) 
 
    # Visual : 
-  
+   ![Alt text](https://github.com/Coderbiswajit24/MavenToysAnalytics/blob/4f02802a6604d148772c928cdbb5115470245ad3/Store%20Location%20Wise%20Profit.png)
+
+   #----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+          # Secondly Findout Store City wise Profit
+
+          store_city_wise_profit = store_product_sales.groupby('Store_City')['Profit'].sum().reset_index()
+
+          store_city_wise_profit.columns = ['Store_City' , 'Total_Profit(US Dollar $)']
+          
+          store_city_wise_profit.sort_values(by = 'Total_Profit(US Dollar $)' , ascending = False)
+   #-----------------------------------------------------------------------------------------------------------------------------------------------------------
+   
+          # Select the top 10 cities
+          top_10_cities = store_city_wise_profit.sort_values(by='Total_Profit(US Dollar $)', ascending=False).head(10)
+
+   # Visual :
+   
+
+            
 
           
        
