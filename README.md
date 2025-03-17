@@ -1,4 +1,4 @@
-ntory![Alt text](https://github.com/Coderbiswajit24/MavenToysAnalytics/blob/49adf32692fcb7c8cb4ca555ec8c8dfa7404148f/Maven_Toys.png)
+![Alt text](https://github.com/Coderbiswajit24/MavenToysAnalytics/blob/49adf32692fcb7c8cb4ca555ec8c8dfa7404148f/Maven_Toys.png)
 
 # MavenToysAnalytics
 Data-driven analysis of Maven Toys &amp; Games to boost sales, profitability, and inventory using Pandas. Uncovers trends in performance, demand, and efficiency with actionable insights.    #DataAnalysis #BusinessIntelligence #RetailAnalytics #InventoryManagement #Python #Pandas #SalesForecasting #ProfitOptimization
@@ -414,13 +414,69 @@ in Jupyter Notebook.
           store_city_wise_sales_revenue.columns = ['Store_City' , 'Total_Sales_Revenue(US Dollar $)']
           
           store_city_wise_sales_revenue.sort_values(by = 'Total_Sales_Revenue(US Dollar $)' , ascending = False)
-   # ------------------------------------------------------------------------------------------------------------------------------------------------------ 
+   #------------------------------------------------------------------------------------------------------------------------------------------------------ 
+ 
           # Sort by Total_Sales_Revenue and get top 10
           top_10_sales = store_city_wise_sales_revenue.sort_values(by='Total_Sales_Revenue(US Dollar $)', ascending=False).head(10)
 
    # Visual : Top 10 Stores Cities Based on Sales Revenue
+   ![Alt text](https://github.com/Coderbiswajit24/MavenToysAnalytics/blob/fb8523bb656bfa070f37b0a728712cb6ed99221f/Top%2010%20Stores%20Cities%20Based%20on%20Sales%20Revenue(USD).png)
+
+   #--------------------------------------------------------------------------------------------------------------------------------------------------------
    
+          # Secondly Findout Sales and Inventory levels across different store Locations.
+
+           store_location_wise_sales_revenue = store_product_sales.groupby("Store_Location")['Sales_Revenue'].sum().reset_index()
+
+           store_location_wise_sales_revenue.columns = ['Store_Location' , 'Total_Sales_Revenue(US Dollar $)']
+           
+           store_location_wise_sales_revenue['Overall_Sales_Revenue(%)'] =round((store_location_wise_sales_revenue['Total_Sales_Revenue(US Dollar $)']*100)/ sum(store_location_wise_sales_revenue['Total_Sales_Revenue(US Dollar $)']),1)
+           
+           store_location_wise_sales_revenue.sort_values(by = 'Total_Sales_Revenue(US Dollar $)' , ascending = False)
+
+   # Visual : Sales Distribution Based on Stores Locations
+   ![Alt text](https://github.com/Coderbiswajit24/MavenToysAnalytics/blob/fb8523bb656bfa070f37b0a728712cb6ed99221f/Sales%20Revenue(USD)%20distribution%20on%20stores%20locations.png)
+
+   # Question 2 :  Are there any regional preferences for specific product categories? 
+
+          # Firstly Findout Store city wise product category sales revenue 
+
+          regional_category_preferences = store_product_sales.groupby(['Store_City' , 'Product_Category'])['Sales_Revenue'].sum().reset_index()
+
+          regional_category_preferences.columns = ['Store_City','Product_Category','Total_Sales_Revenue(US Dollar $)']
+           
+          regional_category_preferences.sort_values(by =['Store_City','Total_Sales_Revenue(US Dollar $)'],ascending =[True , False])
+
+   #----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+          # Secondly Findout store Location wise product category sales revenue.
+
+          location_catgory_preferences = store_product_sales.groupby(['Store_Location','Product_Category'])['Sales_Revenue'].sum().reset_index()
           
+          location_catgory_preferences.columns = ['Store_Location' , 'Product_Category' , 'Total_Sales_Revenue(US Dollar $)']
+          
+          location_catgory_preferences.sort_values(by = ['Store_Location' , 'Total_Sales_Revenue(US Dollar $)'] , ascending = [True , False])
+
+
+   # Question 3:   Which city or store location generates the highest revenue and profit? 
+
+          # Firstly Findout Store Location wise Profit
+
+          store_product_sales['Profit'] = (store_product_sales['Product_Price'] - store_product_sales['Product_Cost'])* store_product_sales['Units']
+
+          store_location_wise_profit = store_product_sales.groupby('Store_Location')['Profit'].sum().reset_index()
+
+          store_location_wise_profit.columns = ['Store_Location' , 'Total_Profit(US Dollar $)']
+
+          store_location_wise_profit.sort_values(by = 'Total_Profit(US Dollar $)' , ascending = False) 
+
+   # Visual : 
+  
+
+          
+       
+              
+         
              
 
    
