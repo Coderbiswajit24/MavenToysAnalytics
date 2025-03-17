@@ -50,6 +50,7 @@ Toys aims to:
   ![Alt text](https://github.com/Coderbiswajit24/MavenToysAnalytics/blob/0dfa6369cf8651ba212a29830e238d8f62c48029/Datasets.zip)
 
 # 5. Metadata Information :
+ ![Alt text](https://github.com/Coderbiswajit24/MavenToysAnalytics/blob/394b211aa28eee80132d392c2d1984116debfac1/Maven%20Toys%20%26%20Games%20Metadata%20document.txt)
  
 
 # 6.  Data Model :
