@@ -105,9 +105,18 @@ in Jupyter Notebook.
              df.sort_values(by='Total_Sales_Revenue(US Dollars $)', ascending=False)
 
   # Results : For Sales Revenue
+
+           # Calculating Top 10 Stores Based on Sales Revenue
+             top_10_stores = df.sort_values(by = 'Total_Sales_Revenue(US Dollars $)' , ascending = False).head(10)
+             top_10_stores
    ![Alt text](https://github.com/Coderbiswajit24/MavenToysAnalytics/blob/0e909997588badf6c5191f1302322ad2462f3c48/Top%2010%20Stores%20Based%20On%20Sales%20Revenue(USD).png)
 
    # For Profit :
+          # Calculate Top 10 Stores Based on Profit
+          df1 = store_sales_revenue.groupby('Store_Name')['Profit'].sum().reset_index()
+          df1.columns = ['Store_Name' , 'Total_Profit(US Dollars $)']
+          top_10_profitable_stores = df1.sort_values(by = 'Total_Profit(US Dollars $)' , ascending = False).head(10)
+   ![Alt text](https://github.com/Coderbiswajit24/MavenToysAnalytics/blob/54cae88dcf5e7bfc540952c967a6dea5e9451117/Top%2010%20Stores%20Based%20On%20Profit(USD).png)
    
 
             	   
