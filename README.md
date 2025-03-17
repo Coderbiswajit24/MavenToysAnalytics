@@ -104,7 +104,7 @@ in Jupyter Notebook.
              # This shows the stores with the highest total sales revenue at the top.
              df.sort_values(by='Total_Sales_Revenue(US Dollars $)', ascending=False)
 
-  # Results : For Sales Revenue
+  # Visuals : For Sales Revenue
 
            # Calculating Top 10 Stores Based on Sales Revenue
              top_10_stores = df.sort_values(by = 'Total_Sales_Revenue(US Dollars $)' , ascending = False).head(10)
@@ -139,7 +139,7 @@ in Jupyter Notebook.
             # Display the resulting DataFrame containing the top 10 best-selling products.
             top_selling_products
 
-  # Result : For Top Selling Products
+  # Visuals : For Top Selling Products
    ![Alt text](https://github.com/Coderbiswajit24/MavenToysAnalytics/blob/367cff8057cbcfedf2ea2e86dfbb7de212e6dd2a/Top%2010%20Best%20Seling%20Products%20Based%20On%20Quantity%20Sold.png)
 
   # For Least Selling Products
@@ -205,7 +205,7 @@ in Jupyter Notebook.
            profit_2023 = sum(product_sales[product_sales['Date'] >= '2023-01-01']['Profit'])
 
 
-  # Result : For Monthly Sales Trend (2022 vs 2023)
+  # Visuals : For Monthly Sales Trend (2022 vs 2023)
    ![Alt text](https://github.com/Coderbiswajit24/MavenToysAnalytics/blob/41b0de787047b7dbba75518825fc677b4dc6f2b0/Monthly%20Sales%20Trends%20(2022%20vs%202023).png)
   # For Quarterly Sales Trend (2022 vs 2023)
    ![Alt text](https://github.com/Coderbiswajit24/MavenToysAnalytics/blob/1f93fb8e23ab04bee503c028366ae68ea7a754b4/Quarterly%20Sales%20Trends%20%20(2022%20%26%202023).png)
@@ -216,7 +216,7 @@ in Jupyter Notebook.
             category_wise_quantity_sold = product_sales.groupby('Product_Category')['Units'].sum().reset_index()
             category_wise_quantity_sold.columns = ['Product_Category','Total_unit_sold']
             category_wise_quantity_sold.sort_values(by = 'Total_unit_sold' , ascending = False)
-  # Result :
+  # Visuals :
    ![Alt text](https://github.com/Coderbiswajit24/MavenToysAnalytics/blob/36d10f6ef037ba5fba3404de8df3eb2bc494fa3c/Quantity%20Sold%20Distribution%20Of%20Products%20Category.png)
   # (b). Inventory Management Analysis Insights: 
 
@@ -276,7 +276,7 @@ in Jupyter Notebook.
            # Display the result
            turnover_rate[['Product_Category', 'Inventory_Turnover_Rate']]
 
-  # Result : 
+  # Visual : 
    ![Alt text](https://github.com/Coderbiswajit24/MavenToysAnalytics/blob/06e8ead7385d7872063688df9136f8537d30fc3e/Inventory%20Trunover%20Ratio%20Distribution%20on%20Products%20Category.png)
 
   # Question 3:  Are there any products that are consistently out of stock, leading to potential lost sales? 
@@ -351,7 +351,8 @@ in Jupyter Notebook.
 
   #--------------------------------------------------------------------------------------------------------------------------------------------------------
             
-  # (c). Product Profitability Analysis Insights : Which product categories contribute the most to overall profitability?
+  # (c). Product Profitability Analysis Insights : 
+  # Question 1: Which product categories contribute the most to overall profitability?
 
          product_sales['Profit'] = (product_sales['Product_Price'] - product_sales['Product_Cost'])* product_sales['Units']
 
@@ -362,7 +363,17 @@ in Jupyter Notebook.
          product_category_wise_profit['Overall_profit(%)'] = round((product_category_wise_profit['Total_Profit']*100)/sum(product_sales['Profit']) , 1)
          
          product_category_wise_profit.sort_values(by ='Total_Profit' , ascending = False)
-   # Result : 
+   # Visual : 
+   ![Alt text](https://github.com/Coderbiswajit24/MavenToysAnalytics/blob/559ba51d1b88dbd85ad4088548da156ca2a4c8e8/Profit%20Analysis%20Based%20on%20Products%20Category.png)
+  # Question 2 :  Which products have the highest and lowest profit margins?
+
+         product_profit = product_sales.groupby(['Product_ID' , 'Product_Name'])['Profit'].sum().reset_index()
+
+         product_profit.columns = ['Product_ID' , 'Product_Name' , 'Total_Profit']
+
+         product_profit.sort_values(by = 'Total_Profit' , ascending = False)
+   # Visual:
+   
    
                    
  
