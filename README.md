@@ -248,6 +248,35 @@ in Jupyter Notebook.
 
            store_wise_overstocked_products.sort_values(by = ['Store_Name' , 'Product_Name'])
 
+   # Question 2 :  What is the inventory turnover rate for each product category? 
+
+           # Merge sales and products to get product cost
+           sales_with_cost = pd.merge(sales, products, on='Product_ID', how='left')
+           
+           # Calculate COGS for each sale
+           sales_with_cost['COGS'] = sales_with_cost['Product_Cost'] * sales_with_cost['Units']
+           
+           # Sum COGS by product category
+           total_cogs = sales_with_cost.groupby('Product_Category')['COGS'].sum().reset_index()
+           total_cogs.columns = ['Product_Category', 'Total_COGS']
+           
+           # Merge inventory and products to get product category
+           inventory_with_category = pd.merge(inventory, products, how='inner', on='Product_ID')
+           
+           # Calculate average inventory for each product category
+           average_inventory = inventory_with_category.groupby('Product_Category')['Stock_On_Hand'].mean().reset_index()
+           average_inventory.columns = ['Product_Category', 'Average_inventory']
+           
+           # Merge total COGS and average inventory
+           turnover_rate = pd.merge(total_cogs, average_inventory, how='inner', on='Product_Category')
+           
+           # Calculate inventory turnover rate
+           turnover_rate['Inventory_Turnover_Rate'] = round(turnover_rate['Total_COGS'] / turnover_rate['Average_inventory'] , 1)
+           
+           # Display the result
+           turnover_rate[['Product_Category', 'Inventory_Turnover_Rate']]
+
+
            
            
 
