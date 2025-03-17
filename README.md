@@ -167,7 +167,7 @@ in Jupyter Notebook.
             
             # Sort the DataFrame by 'Month_Number' to ensure the months are in chronological order.
             month_wise_sales_revenue_2022.sort_values(by='Month_Number')
-     # --------------------------------------------------------------------------------------------------------------------------------------------------------
+  # --------------------------------------------------------------------------------------------------------------------------------------------------------
 
             # Calculating 2023 Monthly Sales Revenue Trends
 
@@ -182,10 +182,33 @@ in Jupyter Notebook.
             
             # Sort the DataFrame by 'Month_Number' to ensure the months are in chronological order.
             month_wise_sales_revenue_2023.sort_values(by='Month_Number')
+  # --------------------------------------------------------------------------------------------------------------------------------------------------------
 
-     # Result : For Monthly Sales Trend (2022 vs 2023)
-     ![Alt text](https://github.com/Coderbiswajit24/MavenToysAnalytics/blob/41b0de787047b7dbba75518825fc677b4dc6f2b0/Monthly%20Sales%20Trends%20(2022%20vs%202023).png)
-     # For Quarterly Sales Trend (2022 vs 2023)
+            # Year basis Quarterly Sales Revenue
+            # First Calculating 2022 Quarterly Sales Revenue Trend
+            quarter_wise_sales_revenue_2022 = month_wise_sales[month_wise_sales['Year'] == 2022].groupby("Quarter")['Sales_Revenue'].sum().reset_index()
+
+            quarter_wise_sales_revenue_2022.columns = ['Quarter' , 'Total_Sales_Revenue']  
+
+            quarter_wise_sales_revenue_2022
+ # -------------------------------------------------------------------------------------------------------------------------------------------------------- 
+            #  Similarly Calculate 2023 Quarterly Sales Revenue Trend
+            quarter_wise_sales_revenue_2023 = month_wise_sales[month_wise_sales['Year'] == 2023].groupby("Quarter")['Sales_Revenue'].sum().reset_index 
+            quarter_wise_sales_revenue_2023.columns = ['Quarter' , 'Total_Sales_Revenue']  
+            quarter_wise_sales_revenue_2023
+
+   # Result : For Monthly Sales Trend (2022 vs 2023)
+   ![Alt text](https://github.com/Coderbiswajit24/MavenToysAnalytics/blob/41b0de787047b7dbba75518825fc677b4dc6f2b0/Monthly%20Sales%20Trends%20(2022%20vs%202023).png)
+   # For Quarterly Sales Trend (2022 vs 2023)
+   ![Alt text](https://github.com/Coderbiswajit24/MavenToysAnalytics/blob/1f93fb8e23ab04bee503c028366ae68ea7a754b4/Quarterly%20Sales%20Trends%20%20(2022%20%26%202023).png)
+
+   # Question 4 :  Identify Popular Products Category based on quantity Sold
+            
+            category_wise_quantity_sold = product_sales.groupby('Product_Category')['Units'].sum().reset_index()
+            category_wise_quantity_sold.columns = ['Product_Category','Total_unit_sold']
+            category_wise_quantity_sold.sort_values(by = 'Total_unit_sold' , ascending = False)
+   # Result :
+  
      
      
                            
