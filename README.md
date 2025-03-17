@@ -117,6 +117,28 @@ in Jupyter Notebook.
           df1.columns = ['Store_Name' , 'Total_Profit(US Dollars $)']
           top_10_profitable_stores = df1.sort_values(by = 'Total_Profit(US Dollars $)' , ascending = False).head(10)
    ![Alt text](https://github.com/Coderbiswajit24/MavenToysAnalytics/blob/54cae88dcf5e7bfc540952c967a6dea5e9451117/Top%2010%20Stores%20Based%20On%20Profit(USD).png)
+   # Question 2 : Which products are the top-selling and least-selling across all stores? 
+          # Merge the 'sales' and 'products' tables on the 'Product_ID' column using an inner join.
+          # This combines sales data with product information for each product sold.
+          product_sales = sales.merge(products, how='inner', on='Product_ID')
+          
+          # Group the merged DataFrame by 'Product_Name' and calculate the total units sold for each product.
+          # The result is a new DataFrame with two columns: 'Product_Name' and the sum of 'Units' sold for each product.
+          product_units_sold = product_sales.groupby('Product_Name')['Units'].sum().reset_index()
+          
+          # Rename the columns in the resulting DataFrame for clarity.
+          # The 'Units' column is renamed to 'Total_Quantity_Sold'.
+          product_units_sold.columns = ['Product_Name', 'Total_Quantity_Sold']
+          
+          # Sort the DataFrame by 'Total_Quantity_Sold' in descending order and select the top 10 products.
+          # This gives the top 10 best-selling products based on the total quantity sold.
+          top_selling_products = product_units_sold.sort_values(by='Total_Quantity_Sold', ascending=False).head(10)
+          
+          # Display the resulting DataFrame containing the top 10 best-selling products.
+          top_selling_products
+
+   # Result : For Top Selling Products
    
+             
 
             	   
