@@ -167,7 +167,7 @@ in Jupyter Notebook.
             
             # Sort the DataFrame by 'Month_Number' to ensure the months are in chronological order.
             month_wise_sales_revenue_2022.sort_values(by='Month_Number')
-     # ------------------------------------------------------------------------------------------------------------------------------------------------------
+     # --------------------------------------------------------------------------------------------------------------------------------------------------------
 
             # Calculating 2023 Monthly Sales Revenue Trends
 
@@ -183,7 +183,10 @@ in Jupyter Notebook.
             # Sort the DataFrame by 'Month_Number' to ensure the months are in chronological order.
             month_wise_sales_revenue_2023.sort_values(by='Month_Number')
 
-     # Result :
+     # Result : For Monthly Sales Trend (2022 vs 2023)
+     ![Alt text](https://github.com/Coderbiswajit24/MavenToysAnalytics/blob/41b0de787047b7dbba75518825fc677b4dc6f2b0/Monthly%20Sales%20Trends%20(2022%20vs%202023).png)
+     # For Quarterly Sales Trend (2022 vs 2023)
+     
      
                            
              
