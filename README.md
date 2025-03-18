@@ -525,7 +525,37 @@ in Jupyter Notebook.
            peak_sales_period_weekday.columns = ['Week_day','Total_Sales_Revenue(US Dollar $)']
 
            peak_sales_period_weekday.sort_values(by = 'Total_Sales_Revenue(US Dollar $)' , ascending = False)
-   # Visual :         
+   # Visual : Peak Sales Period by weekdays(include weekends)
+   ![Alt text](https://github.com/Coderbiswajit24/MavenToysAnalytics/blob/41f2a76a347febd63e7ec4e74c673a2ecd005c19/Peak%20Sales%20Period%20based%20on%20weekdays.png)
+
+   # Question 2: Can we forecast future sales based on historical data?
+
+          from statsmodels.tsa.arima.model import ARIMA
+
+          # Fit the ARIMA model
+          # order=(p, d, q): p=autoregressive, d=differencing, q=moving average
+          # Here, we use order=(2, 1, 0) as an example. You may need to tune these parameters.
+          
+          model = ARIMA(month_wise_sales_revenue_2023['Total_Sales_Revenue'] , order = (2 , 1, 0))
+          
+          model_fit = model.fit()
+          
+          # Forecast the next 12 months
+          
+          forecast = model_fit.forecast(steps = 12)
+          
+          # Create a DataFrame for the forecasted values
+          
+          forecast_df = pd.DataFrame({'Month_Number':range(10,22),
+                                     'Forecast_Sales_Revenue':round(forecast,0)})
+          
+          
+          print("Forecast for Next 12 Months(from 2023 september to 2024 september): ")
+          
+          forecast_df 
+
+   # Visual : 
+   
            
 
             
