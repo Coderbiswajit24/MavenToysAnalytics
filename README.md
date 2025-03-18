@@ -487,8 +487,46 @@ in Jupyter Notebook.
           # Select the top 10 cities
           top_10_cities = store_city_wise_profit.sort_values(by='Total_Profit(US Dollar $)', ascending=False).head(10)
 
-   # Visual :
+   # Visual : Top 10 Stores Cities Based on Profit
+   ![Alt text](https://github.com/Coderbiswajit24/MavenToysAnalytics/blob/b520452f0f9f8e65effadc891abad21fbd94da0d/Top%2010%20Stores%20Cities%20Based%20on%20Profit.png)
+
+   # (e). Customer Demand & forecasting analysis Insights :
+   # Question 1: What are the peak sales periods (e.g., holidays, weekends)? 
+
+           def findout_week_day_type(week_day):
+               if week_day =='Saturday' or week_day =='Sunday':
+                   return 'Weekends'
+               else:
+                   return 'Weekdays'
+               
+           # Add Another Column week_day_type in the date_table dataframe
+           
+           date_table['Week_Day_Type'] = date_table['Week_day'].apply(findout_week_day_type)
+           
+           date_table  
+
+   #---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+           product_sales['Sales_Revenue'] = product_sales['Product_Price'] * product_sales['Units']
+
+           sales_period = pd.merge(product_sales , date_table , how = 'inner' ,on = 'Date')
+           
+           peak_sales_period = sales_period.groupby('Week_Day_Type')['Sales_Revenue'].sum().reset_index()
+           
+           peak_sales_period.columns = ['Week_Day_Type','Total_Sales_Revenue(US Dollar $)']
+           
+           peak_sales_period.sort_values(by = 'Total_Sales_Revenue(US Dollar $)' , ascending = False) 
+   #---------------------------------------------------------------------------------------------------------------------------------------------------------       
    
+           #  Peak Sales Period Based on Every Single Weekday 
+
+           peak_sales_period_weekday = sales_period.groupby('Week_day')['Sales_Revenue'].sum().reset_index()
+
+           peak_sales_period_weekday.columns = ['Week_day','Total_Sales_Revenue(US Dollar $)']
+
+           peak_sales_period_weekday.sort_values(by = 'Total_Sales_Revenue(US Dollar $)' , ascending = False)
+   # Visual :         
+           
 
             
 
