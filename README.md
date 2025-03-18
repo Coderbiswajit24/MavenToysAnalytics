@@ -628,6 +628,20 @@ in Jupyter Notebook.
 
    # Here are  my top Recommendations Across Sections to Fulfill Business Requirements:
    - Optimize Inventory Management:
+
+
+
+
+
+
+   - Improve Sales Performance :
+      Foucus on Top Selling Stores like (e.g.,Maven Toys Ciudad de Mexico 2,Maven Toys Guadalajara 3,Maven Toys Ciudad de Mexico 1,Maven Toys Toluca 1 ) and top selling Products like (e.g.,Colorbuds,	PlayDoh Can
+     ,Lego Bricks,Animal Figures) Promote these products across all cities and locations(e.g., Downtown , Commercial) to improve sales Performance. Also Promote top selling Product Category (e.g.,Art & Crafts , Toys , Games) products across all stores through marketing campaign to boost sales Performance. Also Give seasonal(e.g., summer , winter are two peak sales season here ) discounts on least selling Products like
+     (e.g.,Teddy Bear, Supersoaker Water ) to Optimize Sales Performance.
+
+
+
+   - Enhance Profitability : Increasing Price slightly for top Profitable Products (e.g.,Colorbuds , Action Figure , Lego Bricks , Deck of Cards , Glass of Marbles) and consistence demanding Products (e.g., Monopoly, Jenga , Classic Dominoes , Chutes & Ladders , Plush Pony , Mini Basketball Hoop , PlayDoh Playset , Uno Card Game ) across all stores cities and locations (e.g., Downtown , Commercial) to maximize Profitability. 
       
     
    
