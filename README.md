@@ -626,22 +626,17 @@ in Jupyter Notebook.
 
    # 10. <img src="https://static.vecteezy.com/system/resources/previews/026/711/272/original/recommended-stamp-recommendation-icon-recommendation-rubber-stamp-round-band-label-emblem-seal-sticker-logo-illustration-with-grunge-texture-vector.jpg" alt="Recommendation" width="35" height="35"> Recommendation :
 
-   # Here are  my top Recommendations Across Sections to Fulfill Business Requirements:
-   - Optimize Inventory Management:
+   # Here are Some Top Recommendations to Fulfill Business Requirements:
+   - Optimize Inventory Management:  Target stores with the lowest inventory management efficiency, such as Maven Toys Pachuca 1, Maven Toys Culiacan 1, Maven Toys La Paz 1, Maven Toys Hermosillo 2, and Maven Toys Aguascalientes 1. Leverage forecast insights to maintain optimal stock levels, minimizing overstocking of seasonal items and preventing stockouts of high-demand products like Classic Dominoes. Integrate inventory data with sales trends to prioritize fast-moving items, ensuring efficient stock management and alignment with customer demand.
+
+   - Improve Sales Performance :  Focus on top-performing stores such as Maven Toys Ciudad de Mexico 2, Maven Toys Guadalajara 3, Maven Toys Ciudad de Mexico 1, and Maven Toys Toluca 1, and prioritize promoting high-selling products like Colorbuds, PlayDoh Can, Lego Bricks, and Animal Figures. Extend the promotion of these products across all cities and key locations (e.g., downtown and commercial areas) to enhance sales performance. Additionally, launch marketing campaigns to boost the top-selling product categories—Arts & Crafts, Toys, and Games—across all stores. To optimize sales further, offer seasonal discounts during peak sales periods (summer and winter) on low-performing products such as Teddy Bears and Supersoaker Water to drive demand and improve overall sales performance.
+
+   - Enhance Profitability : To maximize profitability, implement a slight price increase for top-performing profitable products (e.g., Colorbuds, Action Figures, Lego Bricks, Deck of Cards, Glass of Marbles) and consistently in-demand products (e.g., Monopoly, Jenga, Classic Dominoes, Chutes & Ladders, Plush Pony, Mini Basketball Hoop, PlayDoh Playset, Uno Card Game). Apply this strategy across all top selling store cities and key locations (e.g., downtown and commercial areas) to boost revenue while maintaining customer demand.
+
+   - Forecast Customer Demand : Older stores (over 10 years old) generate $9.28 million in sales revenue, significantly outperforming newer stores ($5.16 million), highlighting their stronger performance over time. Peak sales occur on Thursdays, Fridays, and Saturdays, with Quarter 2 (April, May, June – summer) and Quarter 4 (November, December – winter) being the highest-performing seasons annually. To meet consistent customer demand, increase inventory stock levels of popular products such as Classic Dominoes, Chutes & Ladders, Magic Sand, Jenga, Etch A Sketch, and Uno Card Game in older stores (age > 10 years). Simultaneously, reduce inventory levels of less-demanded items like Nerf Guns, Dinosaur Figures, Rubik’s Cube, and Decks of Cards across all top-selling locations (e.g., downtown and commercial areas) to optimize stock and align with consumer preferences.
 
 
-
-
-
-
-   - Improve Sales Performance :
-      Foucus on Top Selling Stores like (e.g.,Maven Toys Ciudad de Mexico 2,Maven Toys Guadalajara 3,Maven Toys Ciudad de Mexico 1,Maven Toys Toluca 1 ) and top selling Products like (e.g.,Colorbuds,	PlayDoh Can
-     ,Lego Bricks,Animal Figures) Promote these products across all cities and locations(e.g., Downtown , Commercial) to improve sales Performance. Also Promote top selling Product Category (e.g.,Art & Crafts , Toys , Games) products across all stores through marketing campaign to boost sales Performance. Also Give seasonal(e.g., summer , winter are two peak sales season here ) discounts on least selling Products like
-     (e.g.,Teddy Bear, Supersoaker Water ) to Optimize Sales Performance.
-
-
-
-   - Enhance Profitability : Increasing Price slightly for top Profitable Products (e.g.,Colorbuds , Action Figure , Lego Bricks , Deck of Cards , Glass of Marbles) and consistence demanding Products (e.g., Monopoly, Jenga , Classic Dominoes , Chutes & Ladders , Plush Pony , Mini Basketball Hoop , PlayDoh Playset , Uno Card Game ) across all stores cities and locations (e.g., Downtown , Commercial) to maximize Profitability. 
+   - Regional Trends : Focus on top-selling cities such as Mexico City, Guadalajara, Monterrey, Hermosillo, Guanajuato, Puebla, Toluca, and Xalapa, and high-performing locations like downtown and commercial areas. In these regions, prioritize promoting high-demand product categories, including Toys, Arts & Crafts, and Electronic Games, to capitalize on consumer preferences. For lower-performing locations, such as airports and residential areas, tailor offerings by promoting products in the Toys, Games, and Arts & Crafts categories to boost sales and better align with regional demand.
       
     
    
