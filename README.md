@@ -638,7 +638,14 @@ in Jupyter Notebook.
 
    - Regional Trends : Focus on top-selling cities such as Mexico City, Guadalajara, Monterrey, Hermosillo, Guanajuato, Puebla, Toluca, and Xalapa, and high-performing locations like downtown and commercial areas. In these regions, prioritize promoting high-demand product categories, including Toys, Arts & Crafts, and Electronic Games, to capitalize on consumer preferences. For lower-performing locations, such as airports and residential areas, tailor offerings by promoting products in the Toys, Games, and Arts & Crafts categories to boost sales and better align with regional demand.
       
-    
+# Thank You!
+
+![Thank You](https://th.bing.com/th/id/OIP.lsrYKH1UItL1uVP4kTv1ZQHaHa?pid=ImgDet&w=474&h=474&rs=1)
+
+Thank you for visiting and supporting my project!
+
+
+If you'd like to refine this further or need additional details, let me know!   
    
 
     
