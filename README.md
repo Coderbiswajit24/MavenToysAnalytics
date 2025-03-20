@@ -3,6 +3,9 @@
 # MavenToysAnalytics
 Data-driven analysis of Maven Toys &amp; Games to boost sales, profitability, and inventory using Pandas. Uncovers trends in performance, demand, and efficiency with actionable insights.    #DataAnalysis #BusinessIntelligence #RetailAnalytics #InventoryManagement #Python #Pandas #SalesForecasting #ProfitOptimization
 
+# About Maven Comapny :
+Maven Toys & Games is a creative and innovative toy company dedicated to inspiring imagination and delivering joy to children and families. Known for going beyond traditional play, the company designs toys that entertain while fostering creativity. As a prominent player in the toy industry, Maven Toys operates a chain of stores, offering a diverse range of products across various categories. With a focus on expansion and data-driven decision-making, the company aims to create memorable experiences and continue growing its presence in the market.
+
 # Project Content :
 
  # 1. 🔍 Project Overview :
